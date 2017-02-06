@@ -1,4 +1,5 @@
 import com.rimusdesign.webcrawler.Crawler;
+import com.rimusdesign.webcrawler.model.Page;
 import com.rimusdesign.webcrawler.utils.CommonUtils;
 import org.apache.logging.log4j.CloseableThreadContext;
 import org.slf4j.Logger;
@@ -34,6 +35,14 @@ public class Application {
 
 
             log.info("Pages visited: " + crawler.getPages().size());
+
+            for (Page page : crawler.getPages()){
+                log.info("\n\nID: " + page.getId()
+                        + "\nURL: " + page.getUrl()
+                        + "\nMIME: " + page.getMimeType()
+                        + "\nSTATUS: " + page.getStatusCode()
+                        + "\nTitle: " + page.getTitle() + "\n");
+            }
 
         }
     }
