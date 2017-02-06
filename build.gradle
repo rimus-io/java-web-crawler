@@ -1,0 +1,42 @@
+apply plugin: 'application'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+
+    compile('org.jsoup:jsoup:1.10.2')
+
+    compile('org.projectlombok:lombok:1.16.12')
+
+    compile('org.slf4j:slf4j-api:1.7.22')
+    compile('org.apache.logging.log4j:log4j-slf4j-impl:2.7')
+    compile('org.apache.logging.log4j:log4j-core:2.6')
+    compile('org.apache.logging.log4j:log4j-api:2.6')
+
+    testCompile('junit:junit:4.12')
+
+}
+
+
+
+run {
+    mainClassName = "Application"
+}
+
+test {
+    testLogging {
+        events 'PASSED', 'STARTED', 'FAILED', 'SKIPPED'
+    }
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.9'
+}
+
+
+defaultTasks 'clean', 'test', 'run'
+
+
+
