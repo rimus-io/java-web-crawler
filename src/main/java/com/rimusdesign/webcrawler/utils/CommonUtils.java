@@ -101,6 +101,18 @@ public class CommonUtils {
 
 
     /**
+     * Cleans up URL. Removes bookmark anchor and trailing slash.
+     *
+     * @param url value
+     * @return Clean URL
+     */
+    public static String cleanUpURL (@NonNull String url ) {
+        String cleanUrl = stripBookmark(url);
+        return cleanUrl.endsWith("/") ? cleanUrl.substring(0,cleanUrl.length()-1) : cleanUrl;
+    }
+
+
+    /**
      * Checks if provided URL contains unsafe characters.
      * Reference: https://perishablepress.com/stop-using-unsafe-characters-in-urls
      *

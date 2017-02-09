@@ -142,4 +142,24 @@ public class CommonUtilsTest {
         assertTrue("Contains unsafe character '`'",
                 CommonUtils.containsUnsafeChars("http://my-domain.com?q=`abc"));
     }
+
+
+    @Test(expected = NullPointerException.class)
+    public void testCleanUpURLNull () throws Exception {
+
+        CommonUtils.cleanUpURL(null);
+    }
+
+    @Test
+    public void testCleanUpURL () throws Exception {
+
+        assertEquals("Empty URL should return empty string",
+                "", CommonUtils.cleanUpURL(""));
+
+        assertEquals("URL '/' should return an empty string",
+                "", CommonUtils.cleanUpURL("/"));
+
+        assertEquals("Bookmark anchor, and trailing slash should be stripped",
+                "http://www.my-domain.com", CommonUtils.cleanUpURL("http://www.my-domain.com/#anchor"));
+    }
 }

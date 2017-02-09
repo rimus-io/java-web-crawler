@@ -3,7 +3,6 @@ package com.rimusdesign.webcrawler;
 
 import com.rimusdesign.webcrawler.model.Page;
 import com.rimusdesign.webcrawler.model.PageState;
-import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.HashSet;
@@ -16,8 +15,6 @@ public class Repository {
 
 
     private HashMap<String, Page> items = new HashMap<>();
-    @Getter
-    private HashSet<String> idList = new HashSet<>();
 
 
     public void save (Page page) {

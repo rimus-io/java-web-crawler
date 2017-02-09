@@ -234,7 +234,7 @@ public class ParsingContextGeneric implements ParsingContext {
                     !CommonUtils.containsUnsafeChars(url)) {
 
                 // Clean up URL
-                url = CommonUtils.stripBookmark(url);
+                url = CommonUtils.cleanUpURL(url);
 
                 // Add URL to relevant list
                 if (isExternal(url, document.baseUri())) {
